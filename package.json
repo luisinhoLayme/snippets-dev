@@ -1,0 +1,34 @@
+{
+  "name": "react-css-scss-snippets-dev",
+  "displayName": "react-css-scss-snippets-dev",
+  "description": "My snippets for react js, css, scss",
+  "publisher": "react-luisinho",
+  "version": "1.5.0",
+  "engines": {
+    "vscode": "^1.55.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "icon": "icons/file_type_note@2x.png",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "css",
+        "path": "./snippets/css.json"
+      },
+      {
+        "language": "scss",
+        "path": "./snippets/scss.json"
+      }
+    ]
+  }
+}
