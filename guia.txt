@@ -1,0 +1,10 @@
+
+npm install -g vsce
+
+$ cd myExtension
+$ vsce package
+
+
+install theme in vscode
+code --install-extension my-extension-0.0.2.vsix
+
