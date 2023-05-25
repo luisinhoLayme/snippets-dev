@@ -1,3 +1,4 @@
+
 {
   "console.log": {
     "prefix": "clg",
@@ -10,6 +11,21 @@
       "<${0:div}/>"
     ],
     "description": "Log output to Etiquita"
+  },
+
+  "Print to useAppDispatch": {
+    "prefix": "dispatch",
+    "body": [
+      "const dispatch = useAppDispatch$0()"
+    ],
+    "description": "Log output to useAppDispatch redux-hook"
+  },
+  "Print to useAppSelector": {
+    "prefix": "selector",
+    "body": [
+      "const ${2:select} = useAppSelector$0( state => state.${1:hash} )"
+    ],
+    "description": "Log output to useAppDispatch redux-hook"
   },
   "Print to useDispatch": {
     "prefix": "usedis",
@@ -242,21 +258,6 @@
     "body": "for (let ${1:i} = 0, ${2:len} = ${3:iterable}.length; ${1:i} < ${2:len}; ${1:i}++) {\n\t${0}\n}",
     "description": "for loop"
   },
-  "if statement": {
-    "prefix": "if",
-    "body": "if (${1:condition}) {\n\t${0}\n}",
-    "description": "if statement"
-  },
-  "else statement": {
-    "prefix": "el",
-    "body": "else {\n\t${0}\n}",
-    "description": "else statement"
-  },
-  "if/else statement": {
-    "prefix": "ife",
-    "body": "if (${1:condition}) {\n\t${0}\n} else {\n\t\n}",
-    "description": "if/else statement"
-  },
   "else if statement": {
     "prefix": "ei",
     "body": "else if (${1:condition}) {\n\t${0}\n}",
@@ -297,10 +298,33 @@
     "body": "${1}.find(${2:item} => {\n\t${0}\n})",
     "description": "find"
   },
-  "class (ES6)": {
-    "prefix": "class",
-    "body": "class ${1:name} {\n\tconstructor(${2:arguments}) {\n\t\t${0}\n\t}\n}",
-    "description": "class (ES6)"
-  }
 
+	"Print a luis": {
+		"prefix": "slice",
+		"body": [
+			"import { createSlice } from '@reduxjs/toolkit'",
+			"import type { PayloadAction } from '@reduxjs/toolkit'",
+			"",
+			"interface ${1/(.*)/${1:/capitalize}/}State {",
+			"\tvalue: number",
+			"}",
+			"",
+			"const initialState: ${1/(.*)/${1:/capitalize}/}State = {",
+			"\tvalue: 0",
+			"}",
+			"",
+			"export const ${1:counter}Slice = createSlice({",
+			"\tname: '${1:counter}',",
+			"\tinitialState,",
+			"\treducers: {",
+			"\t\t${2:incrementByAmount}: (state, action: PayloadAction<${1/(.*)/${1:/capitalize}/}State>) => {",
+			"\t\t\tstate.value += action.payload.value$0",
+			"\t\t}",
+			"\t}",
+			"})",
+			"",
+			"export const { ${2:incrementByAmount} } = ${1:counter}Slice.actions"
+		],
+		"description": "Log output luis"
+	}
 }
