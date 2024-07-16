@@ -88,15 +88,13 @@
   "Print to com": {
     "prefix": "scf",
     "body": [
-      "const ${1:$TM_FILENAME_BASE} = ($2) => {",
+      "export const ${1:$TM_FILENAME_BASE} = ($2) => {",
       "\treturn (",
       "\t\t<>",
       "\t\t\t$0",
       "\t\t</>",
       "\t)",
-      "}",
-      "",
-      "export default ${1}"
+      "}"
     ],
     "description": "Log output to function"
   },
@@ -146,6 +144,11 @@
     "prefix": "exx",
     "body": "export {${1:moduleName}} from '$0'",
     "description": "Imports entire module statement in ES6 syntax"
+  },
+  "export *": {
+    "prefix": "ex",
+    "body": "export * from '$0'",
+    "description": "export in ES6 syntax"
   },
   "import": {
     "prefix": "imp",
@@ -298,7 +301,11 @@
     "body": "${1}.find(${2:item} => {\n\t${0}\n})",
     "description": "find"
   },
-
+  "class (ES6)": {
+    "prefix": "class",
+    "body": "export class ${1:name} {\n\tconstructor(${2:arguments}) {\n\t\t${0}\n\t}\n}",
+    "description": "class (ES6)"
+  },
 	"Print a luis": {
 		"prefix": "slice",
 		"body": [
